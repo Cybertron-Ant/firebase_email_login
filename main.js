@@ -27,6 +27,54 @@ function register() {
   email = document.getElementById('email').value;
   password = document.getElementById('password').value;
   
+  
+if (validate_email(email) == false|| validate_password(password) == false) {
+  alert('email or password is of incorrect format');
+  
+  //don't run anymore code if email or password is incorrect
+  return;
+}
+
+
+//continue with authentication, inside 'register()' function
+auth.createUserWithEmailAndPassword(email, password)
+.then(function() {
+  
+  var user = auth.currentUser;
+  
+  //add user to the Firebase database
+  var database_ref = database.ref();
+  
+  
+  //create user data
+  var user_data = {
+    firstName : firstName,
+    lastName : lastName,
+    age : age,
+    email : email,
+    password : password,
+    //check when user last logged in
+    last_login : Date.now()
+  }
+  
+  //push 'user_data' to firebase database
+  database_ref.child('users/' + user.uid).set(user_data);
+  
+  
+  console.log('user created');
+  
+})
+.catch(function(error) {
+  
+   var error = error.code;
+   var error_message = error.message;
+   
+   console.log(error_message);
+   
+});
+
+
+  
 }//end register
 
 
@@ -72,50 +120,4 @@ function validate_password(password) {
   }
 }
 
-
-
-if (validate_email(email) == false|| validate_password(password) == false) {
-  alert('email or password is of incorrect format');
-  
-  //don't run anymore code if email or password is incorrect
-  return;
-}
-
-
-//continue with authentication
-auth().createUserWithEmailAndPassword(email, password)
-.then(function() {
-  
-  var user = auth.currentUser;
-  
-  //add user to the Firebase database
-  var database_ref = database.ref();
-  
-  
-  //create user data
-  var user_data = {
-    firstName: firstName,
-    lastName: lastName,
-    age: age,
-    email: email,
-    password: password,
-    //check when user last logged in
-    last_login: Date.now()
-  }
-  
-  //push 'user_data' to firebase database
-  database.ref.child('users/' + user.uid).set(user_data);
-  
-  
-  alert('user created');
-  
-})
-.catch(function(error) {
-  
-   var error = error.code;
-   var error_message = error.message;
-   
-   alert(error_message);
-   
-});
 
