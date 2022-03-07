@@ -52,3 +52,12 @@ function validate_password(password) {
     return true;
   }
 }
+
+
+
+if (validate_email(email) == false|| validate_password(password) == false) {
+  alert('email or password is of incorrect format');
+  
+  //don't run anymore code if email or password is incorrect
+  return;
+}
