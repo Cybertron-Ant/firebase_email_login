@@ -61,3 +61,27 @@ if (validate_email(email) == false|| validate_password(password) == false) {
   //don't run anymore code if email or password is incorrect
   return;
 }
+
+
+//continue with authentication
+auth().createUserWithEmailAndPassword(email, password)
+.then(function() {
+  
+  var user = auth.currentUser;
+  
+  //add user to the Firebase database
+  var database_ref = database.ref();
+  
+  
+  alert('user created');
+  
+})
+.catch(function(error) {
+  
+   var error = error.code;
+   var error_message = error.message;
+   
+   alert(error_message);
+   
+});
+
