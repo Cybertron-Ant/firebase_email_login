@@ -54,7 +54,7 @@ auth.createUserWithEmailAndPassword(email, password)
     email : email,
     password : password,
     //check when user last logged in
-    last_login : Date.now()
+    last_login : Date()
   }
   
   //push 'user_data' to firebase database
@@ -112,7 +112,7 @@ auth.signInWithEmailAndPassword(email, password)
     //create user data
     var user_data = {
       //check when user last logged in
-      last_login: Date.now()
+      last_login: Date()
     }
 
     //push 'user_data' to firebase database
