@@ -93,6 +93,42 @@ function login() {
   return
 }
 
+
+//continue with authentication, inside 'login()' function
+auth.signInWithEmailAndPassword(email, password)
+  .then(function() {
+
+    var user = auth.currentUser;
+
+    //add user to the Firebase database
+    var database_ref = database.ref();
+
+
+    //create user data
+    var user_data = {
+      //check when user last logged in
+      last_login: Date.now()
+    }
+
+    //push 'user_data' to firebase database
+    database_ref.child('users/' + user.uid).update(user_data);
+
+
+    console.log('user logged in!');
+
+  })
+  .catch(function(error) {
+
+    var error = error.code;
+    var error_message = error.message;
+
+    console.log(error_message);
+    if(error_message == undefined) {
+      console.log("Loggin error, check your email or password.");
+    }
+
+  });
+
   
 }///end login
 
