@@ -24,7 +24,20 @@ function register() {
   var firstName = document.getElementById('firstName').value;
   var lastName = document.getElementById('lastName').value;
   var age = document.getElementById('age').value;
-  var email = document.getElementById('email').value;
+  email = document.getElementById('email').value;
   var password = document.getElementById('password').value;
   
 }//end register
+
+
+//define a function to validate email
+function validate_email(email) {
+  expression = /^[^@]+@\w+(\.\w+)+\w$/
+  
+  if (expression.test(email) == true) {
+    //email is valid
+    return true;
+  } else {
+    return false;
+  }
+}
