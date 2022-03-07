@@ -15,3 +15,9 @@ firebase.initializeApp(config);
 //initialize firebase 'auth' and 'database' variables
 const auth = firebase.auth();
 const database = firebase.database();
+
+
+//declare 'register' function
+function register() {
+  
+}//end register
