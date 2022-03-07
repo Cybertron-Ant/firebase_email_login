@@ -25,7 +25,7 @@ function register() {
   var lastName = document.getElementById('lastName').value;
   var age = document.getElementById('age').value;
   email = document.getElementById('email').value;
-  var password = document.getElementById('password').value;
+  password = document.getElementById('password').value;
   
 }//end register
 
@@ -39,5 +39,16 @@ function validate_email(email) {
     return true;
   } else {
     return false;
+  }
+}
+
+
+//define a function to validate the password
+function validate_password(password) {
+  //Firebase only accepts password with more than 6 characters
+  if(password.length < 6) {
+    return false;
+  } else {
+    return true;
   }
 }
