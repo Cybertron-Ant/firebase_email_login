@@ -30,6 +30,12 @@ function register() {
 }//end register
 
 
+//declare 'login' function
+function login() {
+  
+}///end login
+
+
 //define a function to validate email
 function validate_email(email) {
   expression = /^[^@]+@\w+(\.\w+)+\w$/
