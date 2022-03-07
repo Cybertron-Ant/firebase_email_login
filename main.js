@@ -84,6 +84,9 @@ auth().createUserWithEmailAndPassword(email, password)
     last_login: Date.now()
   }
   
+  //push 'user_data' to firebase database
+  database.ref.child('users/' + user.uid).set(user_data);
+  
   
   alert('user created');
   
