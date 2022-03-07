@@ -37,6 +37,15 @@ function login() {
   email = document.getElementById('email').value;
   password = document.getElementById('password').value;
   
+  //validate 'email' and 'password' input fields
+  if (validate_email(email) == false|| validate_password(password) == false) {
+  alert('email or password is of incorrect format')
+  
+  //don't run anymore code if email or password is incorrect
+  return
+}
+
+  
 }///end login
 
 
