@@ -71,6 +71,11 @@ auth.createUserWithEmailAndPassword(email, password)
    
    console.log(error_message);
    
+   //if loggin failed
+  if (error_message == undefined) {
+    console.log("Loggin error, check your email or password.");
+  }
+   
 });
 
 
