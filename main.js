@@ -79,7 +79,9 @@ auth().createUserWithEmailAndPassword(email, password)
     lastName: lastName,
     age: age,
     email: email,
-    password: password
+    password: password,
+    //check when user last logged in
+    last_login: Date.now()
   }
   
   
