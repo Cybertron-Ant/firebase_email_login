@@ -21,9 +21,9 @@ const database = firebase.database();
 function register() {
   
   //grab reference to all input fields
-  var firstName = document.getElementById('firstName').value;
-  var lastName = document.getElementById('lastName').value;
-  var age = document.getElementById('age').value;
+  firstName = document.getElementById('firstName').value;
+  lastName = document.getElementById('lastName').value;
+  age = document.getElementById('age').value;
   email = document.getElementById('email').value;
   password = document.getElementById('password').value;
   
@@ -71,6 +71,16 @@ auth().createUserWithEmailAndPassword(email, password)
   
   //add user to the Firebase database
   var database_ref = database.ref();
+  
+  
+  //create user data
+  var user_data = {
+    firstName: firstName,
+    lastName: lastName,
+    age: age,
+    email: email,
+    password: password
+  }
   
   
   alert('user created');
