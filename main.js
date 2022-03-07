@@ -33,6 +33,10 @@ function register() {
 //declare 'login' function
 function login() {
   
+  //grab reference to 'email' and 'password' input fields
+  email = document.getElementById('email').value;
+  password = document.getElementById('password').value;
+  
 }///end login
 
 
