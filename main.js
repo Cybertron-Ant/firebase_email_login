@@ -20,4 +20,11 @@ const database = firebase.database();
 //declare 'register' function
 function register() {
   
+  //grab reference to all input fields
+  var firstName = document.getElementById('firstName').value;
+  var lastName = document.getElementById('lastName').value;
+  var age = document.getElementById('age').value;
+  var email = document.getElementById('email').value;
+  var password = document.getElementById('password').value;
+  
 }//end register
